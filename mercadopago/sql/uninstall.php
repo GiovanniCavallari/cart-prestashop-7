@@ -34,8 +34,4 @@
 Configuration::deleteByName('MERCADOPAGO_CLIENT_ID');
 Configuration::deleteByName('MERCADOPAGO_CLIENT_SECRET');
 Configuration::deleteByName('MERCADOPAGO_PUBLIC_KEY');
-
-//new version
-Configuration::deleteByName('MERCADOPAGO_ACCESS_TOKEN');
-Configuration::deleteByName('MERCADOPAGO_SANDBOX_ACCESS_TOKEN');
-Configuration::deleteByName('MERCADOPAGO_CHECKOUT_STATUS');
+Configuration::deleteByName('MERCADOPAGO_SANDBOX_PUBLIC_KEY');

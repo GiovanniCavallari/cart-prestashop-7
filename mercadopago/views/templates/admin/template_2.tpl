@@ -32,7 +32,7 @@
                     <div class="label-banner">
                         <h2 class="title-banner">{l s='Procesa pagos y despega tus ventas' mod='mercadopago'}</h2>
                         <p class="text-banner">{l s='Oferece a tus clientes la mejor' mod='mercadopago'} <br> {l s='experiencia de pago.' mod='mercadopago'}</p>
-                        <a onclick="document.querySelectorAll('.nav-tabs li a')[0].click()" class="btn btn-default btn-banner">
+                        <a href="" class="btn btn-default btn-banner">
                             {l s='Configura Mercado Pago' mod='mercadopago'}
                         </a>
                     </div>

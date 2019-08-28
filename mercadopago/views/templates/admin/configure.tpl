@@ -50,39 +50,65 @@
         for (var i=0; i < element.length; i++) {
             element[i].id = "module_form_" + i;
         }
-        
-        //country form
-        var form_credentials = document.querySelector("#module_form_0 .panel .form-wrapper");
-        var form_prepend = document.createElement("div");
 
-        form_prepend.innerHTML = "<div class='row'>\
+
+        // ----- country form ----- //
+        var form_country_prepend = document.createElement("div");
+        var form_country = document.querySelector("#module_form_0 .panel .form-wrapper");
+
+        form_country_prepend.innerHTML = "<div class='row'>\
             <div class='col-md-12 pb-25'>\
                 <h4 class='title-checkout-body'>{l s='¿En qué país opera tu cuenta de Mercado Pago?' mod='mercadopago'}</h4>\
             </div>\
         </div>";
+        form_country.insertBefore(form_country_prepend, form_country.firstChild);
 
-        form_credentials.insertBefore(form_prepend, form_credentials.firstChild);
 
-        //credentials form
+        // ----- credentials form ----- //
+        var form_credentials_prepend = document.createElement("div");
         var form_credentials = document.querySelector("#module_form_1 .panel .form-wrapper");
-        var form_prepend = document.createElement("div");
+        var form_credentials_inputs = document.querySelectorAll("#module_form_1 .panel .form-wrapper .form-group");
 
-        form_prepend.innerHTML = "<div class='row'>\
+        form_credentials_prepend.innerHTML = "<div class='row'>\
             <div class='col-md-12'>\
-                <h4 class='title-checkout-body'>{l s='Activa tus credenciales según lo que quieras hacer' mod='mercadopago'}</h4>\
+                <h4 class='title-checkout-body'>{l s='Ingresa tus credenciales y elige cómo operar' mod='mercadopago'}</h4>\
             </div>\
         </div>\
-        <div class='row pt-15 pb-25'>\
+        <div class='row pt-5 pb-30'>\
             <div class='col-md-12'>\
-                <p class='text-credenciais'>{l s='Realiza pruebas antes de salir al mundo.' mod='mercadopago'} <b>{l s='Opera de dos formas' mod='mercadopago'}</b>:</p>\
-                <p class='text-credenciais'>{l s='Por defecto te dejamos' mod='mercadopago'} <b>{l s='el modo Sandbox activo' mod='mercadopago'}</b> {l s='para que hagas testeos antes de empezar a vender.' mod='mercadopago'}</p>\
-                <p class='text-credenciais'>{l s='¿Todo va bien?' mod='mercadopago'} <b>{l s='Desactiva Sandbox' mod='mercadopago'}</b> {l s='al final de la configuración y abre paso a tus ventas online.' mod='mercadopago'}</p>\
+                <p class='text-credenciais'><b>{l s='Modo Pruebas' mod='mercadopago'}</b></p>\
+                <p class='text-credenciais'>{l s='Por defecto te dejamos el modo Sandbox activo para que hagas testeos antes de empezar a vender.' mod='mercadopago'}</p>\
+                <p class='text-credenciais pt-15'><b>{l s='Modo Producción' mod='mercadopago'}</b></p>\
+                <p class='text-credenciais'>{l s='Cuando veas que todo va bien, desactivá Sandbox, prendé Producción y abrí paso a tus ventas online.' mod='mercadopago'}</p>\
+            </div>\
+        </div>";
+        form_credentials.insertBefore(form_credentials_prepend, form_credentials.firstChild);
+
+        var form_credentials_pruebas_append = "<div class='row pt-20 mb-15'>\
+            <div class='col-md-12'>\
+                <p class='title-credenciais'>{l s='Credenciales de Prueba' mod='mercadopago'}</p>\
+                <p class='text-credenciais pt-5 pb-10'>{l s='Con estas claves podrás hacer las pruebas que quieras.' mod='mercadopago'}</p>\
             </div>\
         </div>";
 
-        form_credentials.insertBefore(form_prepend, form_credentials.firstChild);
-        
-        //homolog form
+        var form_credentials_produccion_append = "<div class='row pt-20 mb-15'>\
+            <div class='col-md-12'>\
+                <p class='title-credenciais'>{l s='Credenciales para producción' mod='mercadopago'}</p>\
+                <p class='text-credenciais pt-5 pb-10'>{l s='Con estas claves podrás recibir pagos reales de tus clientes.' mod='mercadopago'}</p>\
+            </div>\
+        </div>";
+
+        for (var i=0; i < form_credentials_inputs.length; i++) {
+            if(i == 1){
+                form_credentials_inputs[i].insertAdjacentHTML('afterend', form_credentials_pruebas_append);
+            }
+            else if(i == 3){
+                form_credentials_inputs[i].insertAdjacentHTML('afterend', form_credentials_produccion_append);
+            }
+        }
+
+
+        // ----- homolog form ----- //
         var form_homolog = document.querySelector("#module_form_2 .panel .form-wrapper");
 
         form_homolog.innerHTML = "<div class='row'>\
@@ -99,7 +125,8 @@
             </div>\
         </div>";
 
-        //basic configuration form
+
+        // ----- basic configuration form ------ //
         var checkbox = document.querySelectorAll(".checkbox");
         for (var ii=0; ii < checkbox.length; ii++) {
             checkbox[ii].id = "checkbox_"+ii;
@@ -159,7 +186,8 @@
         </div>";
         checkbox_offline.insertAdjacentHTML('beforebegin', checkbox_offline_prepend);
 
-        //advanced configuration form
+        
+        // ----- advanced configuration form ------ //
         var form_module = document.querySelector("#module_form_4 .panel .panel-heading");
         var collapse_body = document.querySelector("#module_form_4 .panel .form-wrapper");
         var collapse_body_prepend = document.createElement("div");
@@ -175,10 +203,10 @@
         </div>";
 
         for (i=0; i < form_group.length; i++) {
-            if(i == 2){
+            if(i == 3){
                 form_group[i].insertAdjacentHTML('afterend', form_group_append);
             }
-            else if(i == 3){
+            else if(i == 4 || i == 0){
                 form_group[i].querySelector("p").style.width = "400px";
             }
         }
@@ -253,6 +281,20 @@
             }
             else{
                 offlineInputs[i].checked = false;
+            }
+        }
+    }
+
+    //Ticket payments
+    function completeTicketCheckbox(){
+        var ticketCheck = document.getElementById("checkmeticket").checked; 
+        var ticketInputs = document.querySelectorAll(".payment-ticket-checkbox");
+        for (var i=0; i < ticketInputs.length; i++) {
+            if(ticketCheck == true){
+                ticketInputs[i].checked = true;
+            }
+            else{
+                ticketInputs[i].checked = false;
             }
         }
     }

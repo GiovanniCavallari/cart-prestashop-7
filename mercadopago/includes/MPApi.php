@@ -59,6 +59,20 @@ class MPApi
     }
 
     /**
+     * Get public key
+     *
+     * @return void
+     */
+    public function getPublicKey()
+    {
+        if (Configuration::get('MERCADOPAGO_SANDBOX_STATUS') == true) {
+            return Configuration::get('MERCADOPAGO_SANDBOX_PUBLIC_KEY');
+        }
+
+        return Configuration::get('MERCADOPAGO_PUBLIC_KEY');
+    }
+
+    /**
      * Get payment methods
      *
      * @return void
@@ -87,78 +101,6 @@ class MPApi
                 'image' => $value['secure_thumbnail'],
                 'config' => 'MERCADOPAGO_PAYMENT_' . Tools::strtoupper($value['id']),
             );
-        }
-
-        return $payments;
-    }
-
-    /**
-     * Get online payment methods
-     *
-     * @return void
-     */
-    public function getOnlinePaymentMethods()
-    {
-        $access_token = $this->getAccessToken();
-        $response = MPRestCli::get('/v1/payment_methods?access_token=' . $access_token);
-
-        //in case of failures
-        if ($response['status'] > 202) {
-            MPLog::generate('API get_payment_methods error: ' . $response['response']['message'], 'error');
-            return false;
-        }
-
-        //response treatment
-        $result = $response['response'];
-        asort($result);
-
-        $payments = array();
-        foreach ($result as $value) {
-            if ($value['payment_type_id'] == 'credit_card' ||
-                $value['payment_type_id'] == 'debit_card' ||
-                $value['payment_type_id'] == 'prepaid_card'
-            ) {
-                $payments[] = array(
-                    'id' => Tools::strtoupper($value['id']),
-                    'name' => $value['name'],
-                );
-            }
-        }
-
-        return $payments;
-    }
-
-    /**
-     * Get offline payment methods
-     *
-     * @return void
-     */
-    public function getOfflinePaymentMethods()
-    {
-        $access_token = $this->getAccessToken();
-        $response = MPRestCli::get('/v1/payment_methods?access_token=' . $access_token);
-
-        //in case of failures
-        if ($response['status'] > 202) {
-            MPLog::generate('API get_payment_methods error: ' . $response['response']['message'], 'error');
-            return false;
-        }
-
-        //response treatment
-        $result = $response['response'];
-        asort($result);
-
-        $payments = array();
-        foreach ($result as $value) {
-            if ($value['payment_type_id'] != 'credit_card' &&
-                $value['payment_type_id'] != 'debit_card' &&
-                $value['payment_type_id'] != 'prepaid_card'
-            ) {
-                $payments[] = array(
-                    'id' => Tools::strtoupper($value['id']),
-                    'name' => $value['name'],
-                );
-            }
         }
 
         return $payments;
