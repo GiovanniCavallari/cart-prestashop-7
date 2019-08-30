@@ -48,42 +48,42 @@ class StandardSettings extends AbstractSettings
      */
     public function generateForm()
     {
-        $title = $this->module->l('Basic Configuration');
+        $title = $this->module->l('Basic Configuration', 'StandardSettings');
         $fields = array(
             array(
                 'type' => 'switch',
-                'label' => $this->module->l('Activate checkout'),
+                'label' => $this->module->l('Activate checkout', 'StandardSettings'),
                 'name' => 'MERCADOPAGO_STANDARD_CHECKOUT',
-                'desc' => $this->module->l('Activate the Mercado Pago experience at the checkout of your store.'),
+                'desc' => $this->module->l('Activate the Mercado Pago experience at the checkout of your store.', 'StandardSettings'),
                 'is_bool' => true,
                 'values' => array(
                     array(
                         'id' => 'MERCADOPAGO_STANDARD_CHECKOUT_ON',
                         'value' => true,
-                        'label' => $this->module->l('Active')
+                        'label' => $this->module->l('Active', 'StandardSettings')
                     ),
                     array(
                         'id' => 'MERCADOPAGO_STANDARD_CHECKOUT_OFF',
                         'value' => false,
-                        'label' => $this->module->l('Inactive')
+                        'label' => $this->module->l('Inactive', 'StandardSettings')
                     )
                 ),
             ),
             array(
                 'col' => 6,
                 'type' => 'text',
-                'label' => $this->module->l('Name'),
+                'label' => $this->module->l('Name', 'StandardSettings'),
                 'name' => 'MERCADOPAGO_INVOICE_NAME',
-                'desc' => $this->module->l('This is the name that will appear on the customers invoice.'),
+                'desc' => $this->module->l('This is the name that will appear on the customers invoice.', 'StandardSettings'),
             ),
             array(
                 'col' => 4,
                 'type' => 'select',
-                'label' => $this->module->l('Category'),
+                'label' => $this->module->l('Category', 'StandardSettings'),
                 'name' => 'MERCADOPAGO_STORE_CATEGORY',
-                'desc' => $this->module->l('What category are your products? ') .
-                    $this->module->l('Choose the one that best characterizes them ') .
-                    $this->module->l('(choose "other" if your product is too specific).'),
+                'desc' => $this->module->l('What category are your products? ', 'StandardSettings') .
+                    $this->module->l('Choose the one that best characterizes them ', 'StandardSettings') .
+                    $this->module->l('(choose "other" if your product is too specific).', 'StandardSettings'),
                 'options' => array(
                     'query' => $this->getCategories(),
                     'id' => 'id',
@@ -93,9 +93,9 @@ class StandardSettings extends AbstractSettings
             array(
                 'col' => 4,
                 'type' => 'checkbox',
-                'label' => $this->module->l('Payment methods'),
+                'label' => $this->module->l('Payment methods', 'StandardSettings'),
                 'name' => 'MERCADOPAGO_PAYMENT',
-                'hint' => $this->module->l('Select the payment methods available in your store.'),
+                'hint' => $this->module->l('Select the payment methods available in your store.', 'StandardSettings'),
                 'class' => 'payment-online-checkbox',
                 'desc' => ' ',
                 'values' => array(
@@ -109,7 +109,7 @@ class StandardSettings extends AbstractSettings
                 'type' => 'checkbox',
                 'name' => 'MERCADOPAGO_PAYMENT',
                 'class' => 'payment-offline-checkbox',
-                'desc' => $this->module->l('Activate the payment alternatives you prefer for your customers.'),
+                'desc' => $this->module->l('Activate the payment alternatives you prefer for your customers.', 'StandardSettings'),
                 'values' => array(
                     'query' => $this->offline_payments,
                     'id' => 'id',
@@ -119,9 +119,9 @@ class StandardSettings extends AbstractSettings
             array(
                 'col' => 4,
                 'type' => 'select',
-                'label' => $this->module->l('Maximum of installments'),
+                'label' => $this->module->l('Maximum of installments', 'StandardSettings'),
                 'name' => 'MERCADOPAGO_INSTALLMENTS',
-                'desc' => $this->module->l('What is the maximum of installments which a customer can buy?'),
+                'desc' => $this->module->l('What is the maximum of installments which a customer can buy?', 'StandardSettings'),
                 'options' => array(
                     'query' => $this->getInstallments(24),
                     'id' => 'id',
@@ -213,7 +213,10 @@ class StandardSettings extends AbstractSettings
     public function getCategories()
     {
         $categories = array();
-        $categories[] = array('id' => 'no_category', 'name' => $this->module->l('Select the category'));
+        $categories[] = array(
+            'id' => 'no_category',
+            'name' => $this->module->l('Select the category', 'StandardSettings')
+        );
         $categories[] = array('id' => 'others', 'name' => 'Other categories');
         $categories[] = array('id' => 'art', 'name' => 'Collectibles & Art');
         $categories[] = array(

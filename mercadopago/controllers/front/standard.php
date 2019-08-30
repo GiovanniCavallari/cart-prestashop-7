@@ -109,8 +109,8 @@ class MercadoPagoStandardModuleFrontController extends ModuleFrontController
     public function standardModalCheckout($cart, $preference)
     {
         $back_url = Tools::getValue('back_url');
-
-        if (isset($back_url)) {
+        
+        if(isset($back_url)){
             return Tools::redirectLink($back_url);
         }
 

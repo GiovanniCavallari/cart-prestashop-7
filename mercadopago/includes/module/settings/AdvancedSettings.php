@@ -48,68 +48,68 @@ class AdvancedSettings extends AbstractSettings
      */
     public function generateForm()
     {
-        $title = $this->module->l('Advanced Configuration');
+        $title = $this->module->l('Advanced Configuration', 'AdvancedSettings');
         $fields = array(
             array(
                 'type' => 'switch',
-                'label' => $this->module->l('Activate modal'),
+                'label' => $this->module->l('Activate modal', 'AdvancedSettings'),
                 'name' => 'MERCADOPAGO_STANDARD_MODAL',
                 'is_bool' => true,
-                'desc' => $this->module->l('Select "YES" to enable a modal for checkout. ') .
-                    $this->module->l('Select "NO" to redirect your customer to Mercado Pago.'),
+                'desc' => $this->module->l('Select "YES" to enable a modal for checkout. ', 'AdvancedSettings') .
+                    $this->module->l('Select "NO" to redirect your customer to Mercado Pago.', 'AdvancedSettings'),
                 'values' => array(
                     array(
                         'id' => 'MERCADOPAGO_STANDARD_MODAL_ON',
                         'value' => true,
-                        'label' => $this->module->l('Active')
+                        'label' => $this->module->l('Active', 'AdvancedSettings')
                     ),
                     array(
                         'id' => 'MERCADOPAGO_STANDARD_MODAL_OFF',
                         'value' => false,
-                        'label' => $this->module->l('Inactive')
+                        'label' => $this->module->l('Inactive', 'AdvancedSettings')
                     )
                 ),
             ),
             array(
                 'type' => 'switch',
-                'label' => $this->module->l('Return to the store'),
+                'label' => $this->module->l('Return to the store', 'AdvancedSettings'),
                 'name' => 'MERCADOPAGO_AUTO_RETURN',
                 'is_bool' => true,
-                'desc' => $this->module->l('Do you want your client to come back to ') .
-                    $this->module->l('the store after finishing the purchase?'),
+                'desc' => $this->module->l('Do you want your client to come back to ', 'AdvancedSettings') .
+                    $this->module->l('the store after finishing the purchase?', 'AdvancedSettings'),
                 'values' => array(
                     array(
                         'id' => 'MERCADOPAGO_AUTO_RETURN_ON',
                         'value' => true,
-                        'label' => $this->module->l('Active')
+                        'label' => $this->module->l('Active', 'AdvancedSettings')
                     ),
                     array(
                         'id' => 'MERCADOPAGO_AUTO_RETURN_OFF',
                         'value' => false,
-                        'label' => $this->module->l('Inactive')
+                        'label' => $this->module->l('Inactive', 'AdvancedSettings')
                     )
                 ),
             ),
             array(
                 'type' => 'switch',
-                'label' => $this->module->l('Binary Mode'),
+                'label' => $this->module->l('Binary Mode', 'AdvancedSettings'),
                 'name' => 'MERCADOPAGO_STANDARD_BINARY_MODE',
                 'is_bool' => true,
-                'desc' => $this->module->l('Accept and reject payments automatically. Do you want us to activate it? '),
-                'hint' => $this->module->l('If you activate the binary mode ') .
-                    $this->module->l('you will not be able to leave pending payments. ') .
-                    $this->module->l('This can affect the prevention of fraud. ') .
-                    $this->module->l('Leave it inactive to be protected by our own tool.'),
+                'desc' => $this->module->l('Accept and reject payments automatically. Do you want us to activate it? ', 'AdvancedSettings'),
+                'hint' => $this->module->l('If you activate the binary mode ', 'AdvancedSettings') .
+                    $this->module->l('you will not be able to leave pending payments. ', 'AdvancedSettings') .
+                    $this->module->l('This can affect the prevention of fraud. ', 'AdvancedSettings') .
+                    $this->module->l('Leave it inactive to be protected by our own tool.', 'AdvancedSettings'),
                 'values' => array(
                     array(
                         'id' => 'MERCADOPAGO_STANDARD_BINARY_MODE_ON',
                         'value' => true,
-                        'label' => $this->module->l('Active')
+                        'label' => $this->module->l('Active', 'AdvancedSettings')
                     ),
                     array(
                         'id' => 'MERCADOPAGO_STANDARD_BINARY_MODE_OFF',
                         'value' => false,
-                        'label' => $this->module->l('Inactive')
+                        'label' => $this->module->l('Inactive', 'AdvancedSettings')
                     )
                 ),
             ),
@@ -118,21 +118,21 @@ class AdvancedSettings extends AbstractSettings
                 'suffix' => 'hours',
                 'type' => 'text',
                 'name' => 'MERCADOPAGO_EXPIRATION_DATE_TO',
-                'label' => $this->module->l('Save payment preferences during '),
-                'hint' => $this->module->l('Payment links are generated every time we receive ') .
-                    $this->module->l('data of a purchase intention of your customers. ') .
-                    $this->module->l('We keep that information for a period of time not to ') .
-                    $this->module->l('ask for the data each time you return to the purchase process. ') .
-                    $this->module->l('Choose when you want us to forget it.'),
+                'label' => $this->module->l('Save payment preferences during ', 'AdvancedSettings'),
+                'hint' => $this->module->l('Payment links are generated every time we receive ', 'AdvancedSettings') .
+                    $this->module->l('data of a purchase intention of your customers. ', 'AdvancedSettings') .
+                    $this->module->l('We keep that information for a period of time not to ', 'AdvancedSettings') .
+                    $this->module->l('ask for the data each time you return to the purchase process. ', 'AdvancedSettings') .
+                    $this->module->l('Choose when you want us to forget it.', 'AdvancedSettings'),
                 'desc' => ' ',
             ),
             array(
                 'col' => 2,
                 'type' => 'text',
                 'name' => 'MERCADOPAGO_SPONSOR_ID',
-                'label' => $this->module->l('Sponsor ID'),
-                'desc' => $this->module->l('With this number we identify all your transactions ') .
-                    $this->module->l('and we know how many sales we process with your account.'),
+                'label' => $this->module->l('Sponsor ID', 'AdvancedSettings'),
+                'desc' => $this->module->l('With this number we identify all your transactions ', 'AdvancedSettings') .
+                    $this->module->l('and we know how many sales we process with your account.', 'AdvancedSettings'),
             ),
         );
 
@@ -175,5 +175,21 @@ class AdvancedSettings extends AbstractSettings
         );
 
         return $form_values;
+    }
+
+    /**
+     * Get installments
+     *
+     * @param int $max
+     * @return void
+     */
+    public function getInstallments($max)
+    {
+        $installments = array();
+        for ($i = $max; $i > 0; $i--) {
+            $installments[] = array('id' => $i, 'name' => $i);
+        }
+
+        return $installments;
     }
 }

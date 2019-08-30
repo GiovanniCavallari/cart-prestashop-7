@@ -117,7 +117,7 @@ class StandardPreference extends AbstractPreference
         }
 
         $payment_options = array(
-            'installments' => (int) $this->settings['MERCADOPAGO_INSTALLMENTS'],
+            'installments' => (integer) $this->settings['MERCADOPAGO_INSTALLMENTS'],
             'excluded_payment_types' => array(),
             'excluded_payment_methods' => $excluded_payment_methods,
         );

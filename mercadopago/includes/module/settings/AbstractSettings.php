@@ -57,7 +57,7 @@ class AbstractSettings
                 'class' => 'credentials',
                 'input' => $fields,
                 'submit' => array(
-                    'title' => $this->module->l('Save')
+                    'title' => $this->module->l('Save', 'AbstractSettings')
                 ),
             ),
         );
@@ -98,7 +98,7 @@ class AbstractSettings
 
         if ($form_alert == false) {
             Mercadopago::$form_alert = 'alert-success';
-            Mercadopago::$form_message = $this->module->l('Settings saved successfully.');
+            Mercadopago::$form_message = $this->module->l('Settings saved successfully.', 'AbstractSettings');
         }
     }
 
@@ -115,7 +115,9 @@ class AbstractSettings
                 case "sponsor_id":
                     if ($value != '' && !$this->mercadopago->isValidSponsorId($value)) {
                         Mercadopago::$form_alert = 'alert-danger';
-                        Mercadopago::$form_message .= $this->module->l('Sponsor ID must be valid and ') . $this->module->l('must be from the same country as the seller.');
+                        Mercadopago::$form_message .=
+                            $this->module->l('Sponsor ID must be valid and ', 'AbstractSettings') .
+                            $this->module->l('must be from the same country as the seller.', 'AbstractSettings');
                         MPLog::generate('Invalid sponsor_id submitted', 'warning');
                         return false;
                     }
@@ -124,7 +126,9 @@ class AbstractSettings
                 case "expiration_preference";
                     if ($value != '' && !is_numeric($value)) {
                         Mercadopago::$form_alert = 'alert-danger';
-                        Mercadopago::$form_message .= $this->module->l('The time to save payment preferences ') . $this->module->l('must be an integer.');
+                        Mercadopago::$form_message .=
+                            $this->module->l('The time to save payment preferences ', 'AbstractSettings') .
+                            $this->module->l('must be an integer.', 'AbstractSettings');
                         MPLog::generate('Invalid expiration_date_to submitted', 'warning');
                         return false;
                     }
@@ -133,7 +137,9 @@ class AbstractSettings
                 case "public_key":
                     if ($value == '') {
                         Mercadopago::$form_alert = 'alert-danger';
-                        Mercadopago::$form_message = $this->module->l('Credentials can not be empty and must be valid. ') . $this->module->l('Please complete your credentials to enable the module.');
+                        Mercadopago::$form_message =
+                            $this->module->l('Credentials can not be empty and must be valid. ', 'AbstractSettings') .
+                            $this->module->l('Please complete your credentials to enable the module.', 'AbstractSettings');
                         MPLog::generate('Invalid ' . $input . ' submitted', 'warning');
                         return false;
                     }
@@ -142,7 +148,9 @@ class AbstractSettings
                 case "access_token":
                     if (!$this->validateCredentials($input, $value)) {
                         Mercadopago::$form_alert = 'alert-danger';
-                        Mercadopago::$form_message = $this->module->l('Credentials can not be empty and must be valid. ') . $this->module->l('Please complete your credentials to enable the module.');
+                        Mercadopago::$form_message =
+                            $this->module->l('Credentials can not be empty and must be valid. ', 'AbstractSettings') .
+                            $this->module->l('Please complete your credentials to enable the module.', 'AbstractSettings');
                         MPLog::generate('Invalid ' . $input . ' submitted', 'warning');
                         return false;
                     }
@@ -151,7 +159,7 @@ class AbstractSettings
                 case "percentage":
                     if ($value != '' && !is_int($value) && $value > 99) {
                         Mercadopago::$form_alert = 'alert-danger';
-                        Mercadopago::$form_message = $this->module->l('Commission and discount must be an integer and less than 100%');
+                        Mercadopago::$form_message = $this->module->l('Commission and discount must be an integer and less than 100%', 'AbstractSettings');
                         MPLog::generate('Invalid commission or discount submitted', 'warning');
                         return false;
                     }
@@ -160,7 +168,7 @@ class AbstractSettings
                 case "payment_due";
                     if ($value != '' && !is_numeric($value)) {
                         Mercadopago::$form_alert = 'alert-danger';
-                        Mercadopago::$form_message .= $this->module->l('The payment due must be an integer.');
+                        Mercadopago::$form_message .= $this->module->l('The payment due must be an integer.', 'AbstractSettings');
                         MPLog::generate('Invalid payment_due submitted', 'warning');
                         return false;
                     }
