@@ -28,8 +28,8 @@ $_MODULE['<{mercadopago}prestashop>abstractsettings_93027262f5c97f5faccac9eb7ef7
 $_MODULE['<{mercadopago}prestashop>abstractsettings_cbfa2a7c18db32aca0f634532701ee11'] = 'Por favor, complete sus credenciales para habilitar el módulo.';
 $_MODULE['<{mercadopago}prestashop>abstractsettings_9f78aed75c95d021da5088d2dfae6429'] = 'La comisión y el descuento deben ser enteros y menos del 100%';
 $_MODULE['<{mercadopago}prestashop>abstractsettings_d13e2a23135def99ea08f9a21eb663a0'] = 'El vencimiento del pago debe ser un número entero.';
-$_MODULE['<{mercadopago}prestashop>standardsettings_263485bdc392a068c22db476bfb5d0f2'] = 'Configuración básica';
-$_MODULE['<{mercadopago}prestashop>standardsettings_49c557074b8d2bdb3ad51b3e0a7de714'] = 'Activar checkout';
+$_MODULE['<{mercadopago}prestashop>standardsettings_263485bdc392a068c22db476bfb5d0f2'] = 'Configuración Básica';
+$_MODULE['<{mercadopago}prestashop>standardsettings_49c557074b8d2bdb3ad51b3e0a7de714'] = 'Activar checkout modal';
 $_MODULE['<{mercadopago}prestashop>standardsettings_d8bf0bd06048ac8cb87266046772cd15'] = 'Activa la experiencia de Mercado Pago en el checkout de tu tienda.';
 $_MODULE['<{mercadopago}prestashop>standardsettings_4d3d769b812b6faa6b76e1a8abaece2d'] = 'Activo';
 $_MODULE['<{mercadopago}prestashop>standardsettings_3cab03c00dbd11bc3569afa0748013f0'] = 'Inactivo';
@@ -45,7 +45,7 @@ $_MODULE['<{mercadopago}prestashop>standardsettings_011901666e08f84f38252b5321a7
 $_MODULE['<{mercadopago}prestashop>standardsettings_3e8133cb8e813855808d2a5cd47ce9c8'] = 'Máximo de cuotas';
 $_MODULE['<{mercadopago}prestashop>standardsettings_5cc9b560613b00fcc6e10883d4432b06'] = 'Cuál es el máximo de cuotas con las que un cliente puede comprar?';
 $_MODULE['<{mercadopago}prestashop>standardsettings_b496f2ac75f46ba34a01cd8c8e3aa58d'] = 'Ajustes guardados con éxito.';
-$_MODULE['<{mercadopago}prestashop>advancedsettings_c70ec5b31b31ecef0efd3ea40e33909f'] = 'Configuración avanzada';
+$_MODULE['<{mercadopago}prestashop>advancedsettings_c70ec5b31b31ecef0efd3ea40e33909f'] = 'Configuración Avanzada';
 $_MODULE['<{mercadopago}prestashop>advancedsettings_12cb38485e6161537d5bb3ae3beebbba'] = 'Activar modal';
 $_MODULE['<{mercadopago}prestashop>advancedsettings_0873f65bd863e2f4c1940e31bac3d28a'] = 'Escoge \"SÍ\" para habilitar modal en el checkout. ';
 $_MODULE['<{mercadopago}prestashop>advancedsettings_0723ac5f3ce27c833bb65b4cae2e19c0'] = 'Cambia a “NO” para enviar su cliente a Mercado Pago.';
