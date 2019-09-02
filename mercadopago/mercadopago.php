@@ -1,5 +1,4 @@
 <?php
-
 /**
  * 2007-2018 PrestaShop.
  *
@@ -146,7 +145,7 @@ class Mercadopago extends PaymentModule
 
         //return forms for admin views in the order that will appear
         $this->loadSettings();
-        $rating = new RatingSettings();
+        new RatingSettings();
         $localization = new LocalizationSettings();
         $credentials  = new CredentialsSettings();
         $homologation = new HomologationSettings();

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * 2007-2018 PrestaShop.
  *
@@ -144,7 +143,10 @@ class CredentialsSettings extends AbstractSettings
                 }
             }
 
-            Mercadopago::$form_message = $this->module->l('Settings saved successfully. Now you can configure the module.', 'CredentialsSettings');
+            Mercadopago::$form_message = $this->module->l(
+                'Settings saved successfully. Now you can configure the module.',
+                'CredentialsSettings'
+            );
 
             $this->sendSettingsInfo();
             MPLog::generate('Credentials saved successfully');

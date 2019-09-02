@@ -1,5 +1,4 @@
 <?php
-
 /**
  * 2007-2018 PrestaShop.
  *
@@ -52,7 +51,10 @@ class LocalizationSettings extends AbstractSettings
                 'type' => 'select',
                 'label' => $this->module->l('Choose your country', 'LocalizationSettings'),
                 'name' => 'MERCADOPAGO_COUNTRY_LINK',
-                'desc' => $this->module->l('Select the country which your Mercado Pago account operates.', 'LocalizationSettings'),
+                'desc' => $this->module->l(
+                    'Select the country which your Mercado Pago account operates.',
+                    'LocalizationSettings'
+                ),
                 'options' => array(
                     'query' => $this->getCountryLinks(),
                     'id' => 'id',
@@ -73,7 +75,10 @@ class LocalizationSettings extends AbstractSettings
     {
         parent::postFormProcess();
 
-        Mercadopago::$form_message = $this->module->l('Settings saved successfully. Now you can configure the module.', 'LocalizationSettings');
+        Mercadopago::$form_message = $this->module->l(
+            'Settings saved successfully. Now you can configure the module.',
+            'LocalizationSettings'
+        );
         MPLog::generate('Localization saved successfully');
     }
 

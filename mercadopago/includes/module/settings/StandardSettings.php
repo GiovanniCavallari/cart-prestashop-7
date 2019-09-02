@@ -1,5 +1,4 @@
 <?php
-
 /**
  * 2007-2018 PrestaShop.
  *
@@ -54,7 +53,10 @@ class StandardSettings extends AbstractSettings
                 'type' => 'switch',
                 'label' => $this->module->l('Activate checkout', 'StandardSettings'),
                 'name' => 'MERCADOPAGO_STANDARD_CHECKOUT',
-                'desc' => $this->module->l('Activate the Mercado Pago experience at the checkout of your store.', 'StandardSettings'),
+                'desc' => $this->module->l(
+                    'Activate the Mercado Pago experience at the checkout of your store.',
+                    'StandardSettings'
+                ),
                 'is_bool' => true,
                 'values' => array(
                     array(
@@ -74,7 +76,10 @@ class StandardSettings extends AbstractSettings
                 'type' => 'text',
                 'label' => $this->module->l('Name', 'StandardSettings'),
                 'name' => 'MERCADOPAGO_INVOICE_NAME',
-                'desc' => $this->module->l('This is the name that will appear on the customers invoice.', 'StandardSettings'),
+                'desc' => $this->module->l(
+                    'This is the name that will appear on the customers invoice.',
+                    'StandardSettings'
+                ),
             ),
             array(
                 'col' => 4,
@@ -109,7 +114,10 @@ class StandardSettings extends AbstractSettings
                 'type' => 'checkbox',
                 'name' => 'MERCADOPAGO_PAYMENT',
                 'class' => 'payment-offline-checkbox',
-                'desc' => $this->module->l('Activate the payment alternatives you prefer for your customers.', 'StandardSettings'),
+                'desc' => $this->module->l(
+                    'Activate the payment alternatives you prefer for your customers.',
+                    'StandardSettings'
+                ),
                 'values' => array(
                     'query' => $this->offline_payments,
                     'id' => 'id',
@@ -121,7 +129,10 @@ class StandardSettings extends AbstractSettings
                 'type' => 'select',
                 'label' => $this->module->l('Maximum of installments', 'StandardSettings'),
                 'name' => 'MERCADOPAGO_INSTALLMENTS',
-                'desc' => $this->module->l('What is the maximum of installments which a customer can buy?', 'StandardSettings'),
+                'desc' => $this->module->l(
+                    'What is the maximum of installments which a customer can buy?',
+                    'StandardSettings'
+                ),
                 'options' => array(
                     'query' => $this->getInstallments(24),
                     'id' => 'id',
@@ -167,8 +178,7 @@ class StandardSettings extends AbstractSettings
             $pm_id = $payment_method['id'];
             $pm_name = 'MERCADOPAGO_PAYMENT_' . $pm_id;
 
-            if (
-                $payment_method['type'] == 'credit_card' ||
+            if ($payment_method['type'] == 'credit_card' ||
                 $payment_method['type'] == 'debit_card' ||
                 $payment_method['type'] == 'prepaid_card'
             ) {

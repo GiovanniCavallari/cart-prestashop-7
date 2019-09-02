@@ -1,5 +1,4 @@
 <?php
-
 /**
  * 2007-2018 PrestaShop.
  *
@@ -95,7 +94,10 @@ class AdvancedSettings extends AbstractSettings
                 'label' => $this->module->l('Binary Mode', 'AdvancedSettings'),
                 'name' => 'MERCADOPAGO_STANDARD_BINARY_MODE',
                 'is_bool' => true,
-                'desc' => $this->module->l('Accept and reject payments automatically. Do you want us to activate it? ', 'AdvancedSettings'),
+                'desc' => $this->module->l(
+                    'Accept and reject payments automatically. Do you want us to activate it? ',
+                    'AdvancedSettings'
+                ),
                 'hint' => $this->module->l('If you activate the binary mode ', 'AdvancedSettings') .
                     $this->module->l('you will not be able to leave pending payments. ', 'AdvancedSettings') .
                     $this->module->l('This can affect the prevention of fraud. ', 'AdvancedSettings') .
@@ -122,7 +124,10 @@ class AdvancedSettings extends AbstractSettings
                 'hint' => $this->module->l('Payment links are generated every time we receive ', 'AdvancedSettings') .
                     $this->module->l('data of a purchase intention of your customers. ', 'AdvancedSettings') .
                     $this->module->l('We keep that information for a period of time not to ', 'AdvancedSettings') .
-                    $this->module->l('ask for the data each time you return to the purchase process. ', 'AdvancedSettings') .
+                    $this->module->l(
+                        'ask for the data each time you return to the purchase process. ',
+                        'AdvancedSettings'
+                    ) .
                     $this->module->l('Choose when you want us to forget it.', 'AdvancedSettings'),
                 'desc' => ' ',
             ),

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * 2007-2018 PrestaShop.
  *
@@ -47,7 +46,7 @@ class MercadoPagoStandardModuleFrontController extends ModuleFrontController
 
         //modal checkout
         if ($preference->settings['MERCADOPAGO_STANDARD_MODAL'] != "") {
-            return $this->standardModalCheckout($cart, $preference);
+            return $this->standardModalCheckout($preference);
         }
 
         //redirect checkout
@@ -106,11 +105,11 @@ class MercadoPagoStandardModuleFrontController extends ModuleFrontController
      * @param mixed $cart
      * @return void
      */
-    public function standardModalCheckout($cart, $preference)
+    public function standardModalCheckout($preference)
     {
         $back_url = Tools::getValue('back_url');
-        
-        if(isset($back_url)){
+
+        if (isset($back_url)) {
             return Tools::redirectLink($back_url);
         }
 
